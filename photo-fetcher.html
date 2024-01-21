@@ -3,18 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="photo-fetcher.js"></script>
     <link rel="stylesheet" href="photo-fetcher.css">
+    <script src="photo-fetcher.js"></script>
 </head>
 <body>
     <div id="container">
-        <div id="switch">
-            <label class="switch">
-                <input type="checkbox"> 
-                <span class="slider round"></span>
-            </label>
+        <div class="toggle-fetch-container">
+            <div id="switch">
+                <label class="switch">
+                    <input type="checkbox"> 
+                    <span class="slider round"></span>
+                </label>
+            </div>
+            <button id="fetch-button">Fetch New Photos</button>
         </div>
-        <button id="fetch-button">Fetch New Photos</button>
     </div>
     <div class="image-row" id="topImages"></div>
     <div class="image-row" id="bottomImages"></div>
