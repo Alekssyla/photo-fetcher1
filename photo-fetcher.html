@@ -3,25 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Photo Fetcher</title>
     <link rel="stylesheet" href="photo-fetcher.css">
-    <script src="photo-fetcher.js"></script>
 </head>
 <body>
-    <div id="container">
-        <div class="toggle-fetch-container">
-            <div id="switch">
-                <label class="switch">
-                    <input type="checkbox"> 
-                    <span class="slider round"></span>
-                </label>
-            </div>
-            <button id="fetch-button">Fetch New Photos</button>
-        </div>
+    <script src="photo-fetcher.js"></script>
+    <div class="top-items">
+        <h2>Photo Fetcher</h2>
+        <label class="switch">
+            <input type="checkbox">
+            <span class="slider round"></span>
+        </label> Make photos greyscale
+        <button id="fetch-button">Fetch New Photos</button>
     </div>
-    <div class="image-row" id="topImages"></div>
-    <div class="image-row" id="bottomImages"></div>
-    <button id="make-photos-button">More Photos</button>
-    <div id="newPhotosContainer" class="image-row"></div>
-
+    <div class="image-container">
+        <div class="image-row" id="topImages"></div>
+        <div class="image-row" id="bottomImages"></div>
+    </div>
+    <button id="fetch-more-button">More Photos</button>
 </body>
 </html>
