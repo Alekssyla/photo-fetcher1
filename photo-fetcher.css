@@ -1,3 +1,15 @@
+#fetch-button, #make-photos-button {
+  background-color: #6b4bd4;
+  border: none;
+  color: white;
+  padding: 10px; /* Increase padding for a rectangular button */
+  border-radius: 0; /* Remove border-radius to make it a rectangle */
+  font-size: 14px;
+  cursor: pointer;
+  margin-top: 10px; /* Adjust margin as needed */
+  width: 55%; /* Make the button span the entire width */
+}
+
 body {
   display: flex;
   flex-direction: column;
