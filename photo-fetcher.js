@@ -5,51 +5,64 @@ document.addEventListener("DOMContentLoaded", function () {
     const fetchButton = document.getElementById("fetch-button");
     const fetchMoreButton = document.getElementById("fetch-more-button");
     const grayscaleSlider = document.querySelector(".switch input");
-  
+
     function fetchNewPhotos(container, count) {
-      // Clear existing images
-      container.innerHTML = "";
-  
-      // Fetch and append new images
-      for (let i = 0; i < count; i++) {
-        fetch(baseURL)
-          .then(response => {
-            if (!response.ok) {
-              throw new Error(`HTTP error! Status: ${response.status}`);
-            }
-            return response.url;
-          })
-          .then(imageUrl => {
-            const imageElement = document.createElement("img");
-            imageElement.src = imageUrl;
-            container.appendChild(imageElement);
-          })
-          .catch(error => {
-            console.error("Error fetching image:", error);
-          });
-      }
+        
+        container.innerHTML = "";
+
+        
+        for (let i = 0; i < count; i++) {
+            fetch(baseURL)
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error(`HTTP error! Status: ${response.status}`);
+                    }
+                    return response.url;
+                })
+                .then(imageUrl => {
+                    const imageContainer = document.createElement("div");
+                    imageContainer.classList.add("image-item");
+
+                    const imageElement = document.createElement("img");
+                    imageElement.src = imageUrl;
+
+                    const textBox = document.createElement("div");
+                    textBox.classList.add("image-text");
+
+                    const text = document.createTextNode("Luckas Budimaier\n  httpd://unsplash.com/photod/pwaaqfomibi");
+                    
+                    
+
+                    textBox.appendChild(text);
+                    imageContainer.appendChild(imageElement);
+                    imageContainer.appendChild(textBox);
+                    container.appendChild(imageContainer);
+                })
+                .catch(error => {
+                    console.error("Error fetching image:", error);
+                });
+        }
     }
-  
+
     function applyGreyscale() {
-      const images = document.querySelectorAll(".image-row img");
-      images.forEach(img => {
-        img.style.filter = grayscaleSlider.checked ? "grayscale(100%)" : "none";
-      });
+        const images = document.querySelectorAll(".image-item img");
+        images.forEach(img => {
+            img.style.filter = grayscaleSlider.checked ? "grayscale(100%)" : "none";
+        });
     }
-  
+
     // Event listeners
     fetchButton.addEventListener("click", function () {
-      fetchNewPhotos(topImagesContainer, 4);
-      fetchNewPhotos(bottomImagesContainer, 0); // Clear bottom images
+        fetchNewPhotos(topImagesContainer, 4);
+        fetchNewPhotos(bottomImagesContainer, 0); // Clear bottom images
     });
-  
+
     fetchMoreButton.addEventListener("click", function () {
-      fetchNewPhotos(bottomImagesContainer, 4);
+        fetchNewPhotos(bottomImagesContainer, 4);
     });
-  
+
     grayscaleSlider.addEventListener("change", applyGreyscale);
-  
-    // Initial fetch
+
+    
     fetchNewPhotos(topImagesContainer, 4);
-  });
-  
+});
