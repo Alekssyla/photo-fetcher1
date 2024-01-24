@@ -3,7 +3,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const topImagesContainer = document.getElementById("topImages");
     const bottomImagesContainer = document.getElementById("bottomImages");
     const fetchButton = document.getElementById("fetch-button");
-    const fetchMoreButton = document.getElementById("fetch-more-button");
+    const fetchMoreButton = document.getElementById("more-button");
     const grayscaleSlider = document.querySelector(".switch input");
 
     function fetchNewPhotos(container, count) {
