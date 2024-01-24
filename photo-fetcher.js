@@ -29,7 +29,7 @@ document.addEventListener("DOMContentLoaded", function () {
                     const textBox = document.createElement("div");
                     textBox.classList.add("image-text");
 
-                    const text = document.createTextNode("Luckas Budimaier\n  httpd://unsplash.com/photod/pwaaqfomibi");
+                    const text = document.createTextNode("Luckas Budimaier\n  httpd://unsplash.com/photod/pwaaqfoMibl");
                     
                     
 
